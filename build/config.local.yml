@@ -1,0 +1,22 @@
+application:
+  database:
+    host: db
+    username: docker
+    password: docker
+    database: docker
+    admin_firstname: TEAM23
+    admin_lastname: GmbH
+    admin_email: info@team23.de
+    admin_user: team23
+    admin_password: testen23
+  devconfig:
+    #base_url: http://localhost:8000/
+    # Using traefik
+    base_url: http://web.magento2.t23dev/
+
+# Using traefik:
+modules:
+  docker:
+    docker_compose_config_overrides:
+      - traefik
+      - xdebug

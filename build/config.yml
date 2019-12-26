@@ -1,0 +1,40 @@
+# This is the central configuration for all tools we use/execute. It is parsed inside
+# the Taskfile, too. See $CONFIG_project_name for example.
+version: 1.1.2
+project:
+  name: Magento2
+  key: magento2
+  url: https://not.existing.yet/
+paths:
+  web: ../web
+  db: ../_db
+application:
+  database:
+    username: docker
+    password: docker
+    database: docker
+    host: db
+modules:
+  template:
+  docker:
+    # This allows for configuration switching. Use "traefik" when switching over to traefik. Put this
+    # into your config.local.yml, DO NOT CHANGE IT HERE.
+    docker_compose_config_overrides:
+      - localhost
+    commands:
+      magento:
+        bin: ["php", "./bin/magento"]
+        service: php
+        workdir: /app/web/
+        user: www-data
+      magerun:
+        bin: ["php", "../build/n98-magerun2.phar"]
+        service: php
+        workdir: /app/web/
+        user: www-data
+      composer:
+        bin: composer
+        service: php
+        workdir: /app/web/
+        no_deps: true
+        user: www-data

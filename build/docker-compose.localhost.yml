@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  # Allow access on http://localhost:8001/
+  phpmyadmin:
+    ports:
+      - "8001:80"
+
+  # Allow access on http://localhost:8000/
+  web:
+    ports:
+      - "8000:80"
+
+  # Allow access on http://localhost:1080/
+  mail:
+    ports:
+      - "1080:1080"

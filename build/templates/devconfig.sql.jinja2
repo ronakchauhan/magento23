@@ -1,0 +1,5 @@
+UPDATE `core_config_data` SET `value` = "{{ config.application.devconfig.base_url }}" WHERE `path` = "web/unsecure/base_url";
+UPDATE `core_config_data` SET `value` = "{{ config.application.devconfig.base_url }}" WHERE `path` = "web/secure/base_url";
+UPDATE `core_config_data` SET `value` = "0" WHERE `path` = "web/secure/use_in_frontend";
+UPDATE `core_config_data` SET `value` = "0" WHERE `path` = "web/secure/use_in_adminhtml";
+DELETE FROM `core_config_data` WHERE `path` LIKE "web/cookie/%";
